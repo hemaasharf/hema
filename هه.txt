@@ -1,0 +1,239 @@
+from OpenGL.GL import *
+from OpenGL.GLUT import *
+import numpy as np
+from math import *
+
+
+def drawCircle(r=0.1, xc=0, yc=0):
+    glBegin(GL_POLYGON)
+    for theta in np.arange(0, 2 * pi, 0.001):
+        glColor3f(0, 0,0)
+
+        x = r * cos(theta)
+        y = r * sin(theta)
+
+        glVertex(x + xc, y + yc)
+    glEnd()
+
+def draw():
+    glClearColor(1, 1, 1, 1)
+    glClear(GL_COLOR_BUFFER_BIT)
+    glColor3f(.8, 0.9, 0)
+
+
+
+    glColor3f(0.5, 0.5, 1)
+    #axis
+    glBegin(GL_LINES)
+    glVertex(0, 1)
+    glVertex(0, -1)
+    glVertex(1, 0)
+    glVertex(-1, 0)
+    glEnd()
+
+    glColor3f(0.9, 1, 0)
+    glBegin(GL_QUADS)
+    glVertex(0.4, 0.4)
+    glVertex(0.4, -0.4)
+    glVertex(-0.4, -0.4)
+    glVertex(-0.4, 0.4)
+    glEnd()
+    #right leg
+    glColor(0,0,0)
+    glBegin(GL_LINE_LOOP)
+    glVertex(0.55, -0.3)
+    glVertex(0.55, -0.55)
+    glVertex(0.4, -0.55)
+    glVertex(0.4, -0.3)
+    glEnd()
+
+    glColor(.4,.4,0.5)
+    glBegin(GL_LINES)
+    glVertex(.55,-.3)
+    glVertex(.4,-.55)
+    glEnd()
+    glColor(.4, .4, 0.5)
+    glBegin(GL_LINES)
+    glVertex(.4, -.3)
+    glVertex(.55, -.55)
+    glEnd()
+
+    # left leg
+    glColor(0, 0, 0)
+    glBegin(GL_LINE_LOOP)
+    glVertex(-0.55, -0.3)
+    glVertex(-0.55, -0.55)
+    glVertex(-0.4, -0.55)
+    glVertex(-0.4, -0.3)
+    glEnd()
+    glColor(.4, .4, 0.5)
+    glBegin(GL_LINES)
+    glVertex(-.55, -.3)
+    glVertex(-.4, -.55)
+    glEnd()
+    glColor(.4, .4, 0.5)
+    glBegin(GL_LINES)
+    glVertex(-.4, -.3)
+    glVertex(-.55, -.55)
+    glEnd()
+#right hand
+
+    glColor(.4, .4, 0.5)
+    glBegin(GL_QUADS)
+    glVertex(.52, .25)
+    glVertex(.52, .075)
+    glVertex(.4, .075)
+    glVertex(.4, .25)
+
+    glEnd()
+    glColor(.4, .4, 0.5)
+    glBegin(GL_QUADS)
+    glVertex(.4, .22)
+    glVertex(.4, .19)
+    glVertex(.25, .19)
+    glVertex(.25, .22)
+    glEnd()
+
+    glColor(.4, .4, 0.5)
+    glBegin(GL_QUADS)
+    glVertex(.4, .105)
+    glVertex(.4, .135)
+    glVertex(.25, .135)
+    glVertex(.25, .105)
+    glEnd()
+
+#left hand
+
+    glColor(.4, .4, 0.5)
+    glBegin(GL_QUADS)
+    glVertex(-.52, .25)
+    glVertex(-.52, .075)
+    glVertex(-.4, .075)
+    glVertex(-.4, .25)
+
+    glEnd()
+    glColor(.4, .4, 0.5)
+    glBegin(GL_QUADS)
+    glVertex(-.4, .22)
+    glVertex(-.4, .19)
+    glVertex(-.25, .19)
+    glVertex(-.25, .22)
+    glEnd()
+
+    glColor(.4, .4, 0.5)
+    glBegin(GL_QUADS)
+    glVertex(-.4, .105)
+    glVertex(-.4, .135)
+    glVertex(-.25, .135)
+    glVertex(-.25, .105)
+    glEnd()
+
+    glColor3f(0.9, 1, 0)
+    glBegin(GL_QUADS)
+    glVertex(0.1, 0.4)
+    glVertex(0.1, 0.6)
+    glVertex(-0.1, 0.6)
+    glVertex(-0.1, 0.4)
+
+    glEnd()
+    glColor3f(0.9, 1, 0)
+    glBegin(GL_QUADS)
+    glVertex(0.1, 0.4)
+    glVertex(0.1, 0.6)
+    glVertex(-0.1, 0.6)
+    glVertex(-0.1, 0.4)
+
+    glEnd()
+    glColor3f(0, 0, 0.5)
+    glBegin(GL_LINE_LOOP)
+    glVertex(0.1, 0.4)
+    glVertex(0.1, 0.6)
+    glVertex(-0.1, 0.6)
+    glVertex(-0.1, 0.4)
+
+    glEnd()
+    glColor3f(0.9, 1, 0)
+    glBegin(GL_QUADS)
+    glVertex(0.05, 0.6)
+    glVertex(0.05, 0.8)
+    glVertex(-0.05, 0.8)
+    glVertex(-0.05, 0.6)
+    glEnd()
+
+    glColor3f(0.9, 1, 0)
+    glBegin(GL_POLYGON)
+    a = 0.3
+    b = 0.1
+    for theta in np.arange(0, 2 * pi, 0.0001):
+        x = a * cos(theta)
+        y = b * sin(theta)
+        glVertex(x, y + 0.8)
+    glEnd()
+
+    glColor3f(0, 0, 0.5)
+    glBegin(GL_LINE_LOOP)
+    a = 0.3
+    b = 0.1
+    for theta in np.arange(0, 2 * pi, 0.0001):
+        x = a * cos(theta)
+        y = b * sin(theta)
+        glVertex(x, y + 0.8)
+    glEnd()
+    glColor3f(0.5, 0.5, 0.5)
+    glBegin(GL_POLYGON)
+    r = 0.1
+    for theta in np.arange(0, 2 * pi, 0.0001):
+        x = r * cos(theta)
+        y = r * sin(theta)
+        glVertex(x + 0.2, y + 0.8)
+    glEnd()
+    glColor3f(0.5, 0.5, 0.5)
+    glBegin(GL_POLYGON)
+    r = 0.1
+    for theta in np.arange(0, 2 * pi, 0.0001):
+        x = r * cos(theta)
+        y = r * sin(theta)
+        glVertex(x - 0.2, y + 0.8)
+    glEnd()
+    drawCircle(0.05, 0.2, 0.8)
+    drawCircle(0.05, -0.2, 0.8)
+
+
+    glColor3f(0.9, 1, 0)
+    glBegin(GL_TRIANGLES)
+    glVertex(0.1, 0.6)
+    glVertex(0.2, 0.4)
+    glVertex(0.1, 0.4)
+
+    glEnd()
+    glColor3f(0.9, 1, 0)
+    glBegin(GL_TRIANGLES)
+    glVertex(-0.1, 0.6)
+    glVertex(-0.2, 0.4)
+    glVertex(-0.1, 0.4)
+
+    glEnd()
+    glColor3f(0, 0, 0.5)
+    glBegin(GL_LINE_LOOP)
+    glVertex(0.1, 0.6)
+    glVertex(0.2, 0.4)
+    glVertex(0.1, 0.4)
+
+    glEnd()
+    glColor3f(0, 0, 0.5)
+    glBegin(GL_LINE_LOOP)
+    glVertex(-0.1, 0.6)
+    glVertex(-0.2, 0.4)
+    glVertex(-0.1, 0.4)
+
+    glEnd()
+
+
+    glFlush()
+
+glutInit()
+glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB)
+glutInitWindowSize(500,500)
+glutCreateWindow(b"Lab2 Program")
+glutDisplayFunc(draw)
+glutMainLoop()
